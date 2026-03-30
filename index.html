@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indu — PMM & Growth Marketing</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+:root { --ink: #0A0A0F; --off: #F7F4EF; --coral: #E03A2A; --gold: #C89A3A; --slate: #1C1C2E; --slate2: #252538; --muted: #8A8A9A; --border: rgba(255,255,255,0.08); --border-light: rgba(0,0,0,0.08); }
+body { font-family: 'Syne', sans-serif; background: var(--off); color: var(--ink); overflow-x: hidden; }
+.hero { min-height: 100vh; background: var(--slate); position: relative; display: grid; grid-template-rows: 1fr auto; overflow: hidden; }
+.hero-bg-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: 'Playfair Display', serif; font-size: clamp(120px, 20vw, 280px); font-weight: 900; letter-spacing: -0.05em; color: rgba(255,255,255,0.025); white-space: nowrap; pointer-events: none; user-select: none; line-height: 1; }
+.hero-content { display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 120px 80px 80px; gap: 80px; position: relative; z-index: 2; }
+.hero-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--coral); margin-bottom: 28px; display: flex; align-items: center; gap: 12px; }
+.hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--coral); }
+.hero-name { font-family: 'Playfair Display', serif; font-size: clamp(64px, 8vw, 96px); font-weight: 900; line-height: 0.95; color: var(--off); margin-bottom: 32px; letter-spacing: -0.02em; }
+.hero-name em { display: block; font-style: italic; color: var(--coral); }
+.hero-thesis { font-size: 18px; line-height: 1.8; color: rgba(247,244,239,0.55); max-width: 460px; font-weight: 400; margin-bottom: 48px; }
+.hero-thesis strong { color: rgba(247,244,239,0.9); font-weight: 700; }
+.hero-actions { display: flex; gap: 16px; align-items: center; }
+.btn-primary { background: var(--coral); color: white; padding: 16px 36px; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: background 0.2s, transform 0.2s; display: inline-block; }
+.btn-primary:hover { background: #c42e1f; transform: translateY(-1px); }
+.btn-ghost { color: rgba(247,244,239,0.45); font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; padding: 16px 4px; border-bottom: 1px solid rgba(247,244,239,0.15); transition: color 0.2s, border-color 0.2s; }
+.btn-ghost:hover { color: var(--off); border-color: var(--off); }
+.hero-stats { display: flex; flex-direction: column; gap: 1px; }
+.hero-stat { background: rgba(255,255,255,0.03); border: 1px solid var(--border); padding: 26px 32px; display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center; transition: background 0.2s; }
+.hero-stat:hover { background: rgba(255,255,255,0.06); }
+.hero-stat-num { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 700; color: var(--off); line-height: 1; white-space: nowrap; }
+.hero-stat-num .accent { color: var(--coral); }
+.hero-stat-label { font-size: 13px; font-weight: 700; color: rgba(247,244,239,0.8); margin-bottom: 4px; }
+.hero-stat-sub { font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(247,244,239,0.3); letter-spacing: 1px; text-transform: uppercase; }
+.hero-bottom { position: relative; z-index: 2; border-top: 1px solid var(--border); display: grid; grid-template-columns: repeat(3, 1fr); }
+.hero-bottom-item { padding: 20px 32px; border-right: 1px solid var(--border); display: flex; align-items: center; gap: 12px; }
+.hero-bottom-item:last-child { border-right: none; }
+.hero-bottom-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--coral); flex-shrink: 0; }
+.hero-bottom-text { font-size: 12px; font-weight: 600; color: rgba(247,244,239,0.35); letter-spacing: 0.5px; }
+section { padding: 112px 80px; position: relative; z-index: 1; }
+.section-tag { font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--coral); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+.section-tag::before { content: ''; display: block; width: 24px; height: 1px; background: var(--coral); }
+.what-i-do { background: var(--off); }
+.what-headline { font-family: 'Playfair Display', serif; font-size: clamp(38px, 4.5vw, 58px); font-weight: 900; line-height: 1.05; color: var(--ink); margin-bottom: 40px; letter-spacing: -0.02em; max-width: 780px; }
+.what-headline em { font-style: italic; color: var(--coral); }
+.what-body { font-size: 19px; line-height: 1.8; color: #3A3A4A; font-weight: 400; max-width: 780px; margin-bottom: 20px; }
+.what-body strong { color: var(--ink); font-weight: 700; }
+.what-clarifier { margin-top: 56px; background: var(--slate); padding: 40px 48px; max-width: 780px; }
+.what-clarifier-text { font-size: 16px; line-height: 1.8; color: rgba(247,244,239,0.6); font-weight: 400; }
+.what-clarifier-text strong { color: var(--off); font-weight: 700; }
+.the-work { background: var(--slate); }
+.the-work .section-tag { color: var(--gold); }
+.the-work .section-tag::before { background: var(--gold); }
+.work-headline { font-family: 'Playfair Display', serif; font-size: clamp(36px, 4.5vw, 54px); font-weight: 900; line-height: 1.1; color: var(--off); margin-bottom: 72px; letter-spacing: -0.02em; max-width: 680px; }
+.work-headline em { font-style: italic; color: var(--gold); }
+.work-story { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; margin-bottom: 80px; }
+.work-org { font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.work-story-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; line-height: 1.25; color: var(--off); margin-bottom: 20px; font-style: italic; }
+.work-story-body { font-size: 15px; line-height: 1.85; color: rgba(247,244,239,0.5); font-weight: 400; }
+.work-wins { display: flex; flex-direction: column; gap: 1px; }
+.work-win { background: rgba(255,255,255,0.03); border: 1px solid var(--border); padding: 24px 28px; display: grid; grid-template-columns: 80px 1fr; gap: 20px; align-items: start; }
+.work-win-stat { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--coral); line-height: 1; white-space: nowrap; }
+.work-win-text { font-size: 14px; line-height: 1.7; color: rgba(247,244,239,0.55); padding-top: 2px; }
+.work-win-text strong { color: rgba(247,244,239,0.9); font-weight: 700; }
+.the-moment { background: var(--coral); padding: 100px 80px; position: relative; overflow: hidden; }
+.the-moment::before { content: '\201C'; position: absolute; top: -60px; left: 40px; font-family: 'Playfair Display', serif; font-size: 380px; font-weight: 900; color: rgba(255,255,255,0.07); line-height: 1; pointer-events: none; }
+.moment-quote { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3.5vw, 44px); font-weight: 700; line-height: 1.3; color: white; max-width: 860px; position: relative; z-index: 1; font-style: italic; margin-bottom: 32px; }
+.moment-context { font-size: 15px; line-height: 1.85; color: rgba(255,255,255,0.65); max-width: 720px; position: relative; z-index: 1; }
+.moment-context strong { color: white; font-weight: 700; }
+.built { background: var(--off); }
+.built-headline { font-family: 'Playfair Display', serif; font-size: clamp(36px, 4.5vw, 54px); font-weight: 900; line-height: 1.1; color: var(--ink); margin-bottom: 16px; letter-spacing: -0.02em; max-width: 720px; }
+.built-headline em { font-style: italic; color: var(--coral); }
+.built-sub { font-size: 16px; line-height: 1.8; color: var(--muted); max-width: 620px; margin-bottom: 64px; font-weight: 400; }
+.built-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(0,0,0,0.06); }
+.built-card { background: var(--off); padding: 40px 36px; position: relative; overflow: hidden; transition: background 0.2s; }
+.built-card:hover { background: white; }
+.built-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--coral); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
+.built-card:hover::after { transform: scaleX(1); }
+.built-card-n { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 2px; margin-bottom: 18px; }
+.built-card-title { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 12px; line-height: 1.35; letter-spacing: -0.2px; }
+.built-card-body { font-size: 13px; line-height: 1.75; color: var(--muted); font-weight: 400; margin-bottom: 24px; }
+.built-card-stack { font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--coral); padding: 6px 12px; border: 1px solid rgba(224,58,42,0.25); display: inline-block; }
+.more-proof { background: var(--ink); }
+.more-proof .section-tag { color: var(--gold); }
+.more-proof .section-tag::before { background: var(--gold); }
+.more-headline { font-family: 'Playfair Display', serif; font-size: clamp(34px, 4vw, 50px); font-weight: 900; line-height: 1.1; color: var(--off); margin-bottom: 72px; letter-spacing: -0.02em; }
+.more-headline em { font-style: italic; color: var(--gold); }
+.more-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(255,255,255,0.04); }
+.more-card { background: var(--ink); padding: 48px; }
+.more-card-org { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 22px; }
+.more-card-intro { font-family: 'Playfair Display', serif; font-size: 22px; font-style: italic; color: var(--off); margin-bottom: 28px; line-height: 1.35; }
+.more-card-wins { display: flex; flex-direction: column; gap: 13px; }
+.more-card-win { display: grid; grid-template-columns: 16px 1fr; gap: 12px; align-items: start; font-size: 13px; line-height: 1.7; color: rgba(247,244,239,0.5); }
+.more-card-win::before { content: '\2192'; color: var(--coral); font-weight: 700; margin-top: 1px; }
+.more-card-win strong { color: rgba(247,244,239,0.85); font-weight: 700; }
+.the-case { background: var(--off); }
+.case-headline { font-family: 'Playfair Display', serif; font-size: clamp(36px, 4.5vw, 54px); font-weight: 900; line-height: 1.1; color: var(--ink); margin-bottom: 72px; letter-spacing: -0.02em; max-width: 680px; }
+.case-headline em { font-style: italic; color: var(--coral); }
+.case-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: rgba(0,0,0,0.05); }
+.case-card { background: var(--off); padding: 52px 48px; }
+.case-num { font-family: 'Playfair Display', serif; font-size: 60px; font-weight: 900; color: rgba(224,58,42,0.1); line-height: 1; margin-bottom: 20px; letter-spacing: -0.04em; }
+.case-title { font-size: 19px; font-weight: 700; color: var(--ink); margin-bottom: 14px; letter-spacing: -0.3px; line-height: 1.3; }
+.case-body { font-size: 14px; line-height: 1.85; color: var(--muted); font-weight: 400; }
+.case-body strong { color: var(--ink); font-weight: 700; }
+.skills { background: var(--slate); }
+.skills .section-tag { color: var(--gold); }
+.skills .section-tag::before { background: var(--gold); }
+.skills-headline { font-family: 'Playfair Display', serif; font-size: clamp(30px, 3.5vw, 44px); font-weight: 900; line-height: 1.1; color: var(--off); margin-bottom: 56px; letter-spacing: -0.02em; }
+.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.skill-group { padding: 30px; border: 1px solid var(--border); }
+.skill-group-title { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-tag { font-size: 12px; font-weight: 600; padding: 6px 12px; background: rgba(255,255,255,0.04); color: rgba(247,244,239,0.55); border: 1px solid var(--border); }
+.contact { background: var(--slate2); padding: 112px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; overflow: hidden; }
+.contact::before { content: 'HIRE'; position: absolute; bottom: -80px; right: -20px; font-family: 'Playfair Display', serif; font-size: 260px; font-weight: 900; color: rgba(255,255,255,0.02); pointer-events: none; letter-spacing: -0.05em; line-height: 1; }
+.contact-headline { font-family: 'Playfair Display', serif; font-size: clamp(44px, 6vw, 76px); font-weight: 900; line-height: 0.95; color: var(--off); margin-bottom: 20px; letter-spacing: -0.03em; }
+.contact-headline em { font-style: italic; color: var(--coral); }
+.contact-sub { font-size: 16px; line-height: 1.75; color: rgba(247,244,239,0.4); max-width: 400px; }
+.contact-details { display: flex; flex-direction: column; gap: 14px; }
+.contact-item { display: grid; grid-template-columns: 44px 1fr; gap: 16px; align-items: center; text-decoration: none; }
+.contact-item-icon { width: 44px; height: 44px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--coral); font-family: 'DM Mono', monospace; font-weight: 700; transition: background 0.2s, border-color 0.2s; }
+.contact-item:hover .contact-item-icon { background: rgba(224,58,42,0.15); border-color: rgba(224,58,42,0.4); }
+.contact-item-label { font-size: 11px; font-weight: 700; color: rgba(247,244,239,0.3); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 3px; }
+.contact-item-value { font-size: 15px; font-weight: 600; color: rgba(247,244,239,0.8); }
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1); }
+.reveal.up { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+.reveal-d3 { transition-delay: 0.3s; }
+@media(max-width: 900px) {
+  .hero-content, .work-story, .more-grid, .case-grid, .contact { grid-template-columns: 1fr; }
+  .built-grid, .skills-grid { grid-template-columns: 1fr 1fr; }
+  section, .the-moment, .contact { padding: 80px 32px; }
+  .hero-content { padding: 80px 32px 60px; }
+  .hero-bottom { grid-template-columns: 1fr; }
+  .hero-bottom-item { border-right: none; border-bottom: 1px solid var(--border); }
+}
+@media(max-width: 600px) {
+  .built-grid, .skills-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-text">INDU</div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-eyebrow">PMM · Growth Marketing · Founder's Office</div>
+      <h1 class="hero-name">
+        Hi, I'm Indu.
+        <em>I fix growth.</em>
+      </h1>
+      <p class="hero-thesis">
+        I don't do everything. I find <strong>what's actually broken</strong> in your funnel, build the system that fixes it, then make sure it runs without needing me in the room every day.
+      </p>
+      <div class="hero-actions">
+        <a href="mailto:indusaharan625@gmail.com" class="btn-primary">Let's talk</a>
+        <a href="#work" class="btn-ghost">See my work ↓</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">2<span class="accent">→</span>326</div>
+        <div class="hero-stat-meta">
+          <div class="hero-stat-label">Customers in 7 months</div>
+          <div class="hero-stat-sub">Swivl · Solo marketer · B2B SaaS</div>
+        </div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">$8<span class="accent">,</span>150</div>
+        <div class="hero-stat-meta">
+          <div class="hero-stat-label">MRR built from zero</div>
+          <div class="hero-stat-sub">Swivl · Full GTM stack · 7 months</div>
+        </div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">78<span class="accent">→</span>42</div>
+        <div class="hero-stat-meta">
+          <div class="hero-stat-label">Bounce rate fixed in 48 hours</div>
+          <div class="hero-stat-sub">Found the real problem, not the surface one</div>
+        </div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">32<span class="accent">K</span></div>
+        <div class="hero-stat-meta">
+          <div class="hero-stat-label">Podcast subscribers from zero</div>
+          <div class="hero-stat-sub">IIT Madras · Built the full content system</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-bottom">
+    <div class="hero-bottom-item">
+      <div class="hero-bottom-dot"></div>
+      <span class="hero-bottom-text">IIT Madras · Integrated M.A. · 8.61 CGPA</span>
+    </div>
+    <div class="hero-bottom-item">
+      <div class="hero-bottom-dot"></div>
+      <span class="hero-bottom-text">Bengaluru · Available immediately</span>
+    </div>
+    <div class="hero-bottom-item">
+      <div class="hero-bottom-dot"></div>
+      <span class="hero-bottom-text">AI-native · Tools as default operating layer</span>
+    </div>
+  </div>
+</section>
+<!-- WHAT I DO -->
+<section class="what-i-do">
+  <div class="section-tag reveal">How I work</div>
+  <h2 class="what-headline reveal">
+    I own the system.<br>
+    <em>Not the task list.</em>
+  </h2>
+  <p class="what-body reveal">
+    I've seen what happens when you ask one person to cover SEO, paid, content, brand, email, events, and social all at once. LinkedIn is full of those stories. Burnout, inconsistent output, and a company that ends up wondering why marketing “didn't work.”
+  </p>
+  <p class="what-body reveal">
+    That's not what I do. What I do is come in, <strong>diagnose where growth is actually leaking</strong>, build the right system to fix it, and make it run. I bring strategy and execution together, use AI to replace what should be automated, and hand off a machine that keeps working.
+  </p>
+  <div class="what-clarifier reveal">
+    <p class="what-clarifier-text">
+      At Swivl, I was the only marketer. I didn't try to do everything. I <strong>figured out what mattered most</strong> (paid acquisition + outbound + attribution), built those systems properly, and automated the rest. The result: 2 to 326 customers and $8,150 MRR in seven months.
+    </p>
+  </div>
+</section>
+<!-- THE WORK -->
+<section class="the-work" id="work">
+  <div class="section-tag reveal">Swivl.tech · Aug 2024 — Mar 2026</div>
+  <h2 class="work-headline reveal">
+    Here's what I actually<br>
+    <em>did, with numbers.</em>
+  </h2>
+  <div class="work-story">
+    <div class="reveal">
+      <div class="work-org">Business management software · US home service contractors</div>
+      <p class="work-story-title">“I joined with 2 customers, no system, and no playbook.”</p>
+      <p class="work-story-body">Seven months later: 326 customers, $8,150 MRR. I built paid acquisition, outbound automation, lifecycle marketing, and attribution as one connected system. Not four separate things. One system where each piece feeds the next.</p>
+    </div>
+    <div class="work-wins reveal reveal-d1">
+      <div class="work-win">
+        <div class="work-win-stat">326</div>
+        <div class="work-win-text"><strong>Customers from 2 in 7 months.</strong> Full GTM stack built from zero. Paid, outbound, lifecycle, attribution — all talking to each other.</div>
+      </div>
+      <div class="work-win">
+        <div class="work-win-stat">78→42</div>
+        <div class="work-win-text"><strong>Bounce rate fixed in 48 hours.</strong> CTR was 4.1% but bounce was 78%. Ran scroll depth analysis and a 94-response survey. Found a fear objection in the copy. Rebuilt the hero. Bounce dropped to 42%.</div>
+      </div>
+      <div class="work-win">
+        <div class="work-win-stat">23%</div>
+        <div class="work-win-text"><strong>Invisible conversions found.</strong> Ran expanded attribution (7-day click + 1-day view). Found 23% of video conversions were view-through. Prevented a wrong decision to cut the entire video budget.</div>
+      </div>
+      <div class="work-win">
+        <div class="work-win-stat">40%</div>
+        <div class="work-win-text"><strong>Feature adoption increase</strong> across 4 AI products through positioning and messaging work alone. No new spend. Just the right story told to the right person.</div>
+      </div>
+      <div class="work-win">
+        <div class="work-win-stat">25%</div>
+        <div class="work-win-text"><strong>Spend efficiency improvement</strong> through weekly CAC/ROAS tracking and A/B tests across creative, audience, and landing page variables.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- THE MOMENT -->
+<div class="the-moment">
+  <p class="moment-quote">
+    “When bounce was 78%, I didn't A/B test the button. I ran a 94-person survey in 48 hours and found the real problem.”
+  </p>
+  <p class="moment-context">
+    Our CTR was strong at 4.1%. But the landing page bounce was 78%. The standard playbook says: test layout, test CTA, run variants. I ran scroll depth analysis, session recordings, and a 94-response user survey in 48 hours instead. The problem wasn't the page design at all. It was the hero copy triggering a fear objection that we'd never noticed. I rebuilt the section to address the objection directly. <strong>Bounce dropped from 78% to 42%.</strong> That's the difference between iterating on the wrong thing and diagnosing the right one.
+  </p>
+</div>
+<!-- WHAT I'VE BUILT -->
+<section class="built">
+  <div class="section-tag reveal">Things I've built</div>
+  <h2 class="built-headline reveal">
+    I build with AI.<br>
+    <em>Not just use it.</em>
+  </h2>
+  <p class="built-sub reveal">A few things I've built myself that show how I work.</p>
+  <div class="built-grid">
+    <div class="built-card reveal">
+      <div class="built-card-n">01</div>
+      <div class="built-card-title">DTC Lead Prospecting Dashboard</div>
+      <div class="built-card-body">Built a live React dashboard using Apify actors: scrapes LinkedIn profiles of D2C founders and CMOs, cross-references Meta Ads Library activity in real-time, auto-scores leads hot/warm/cold by ad spend intensity. One-click CSV export into the outreach stack.</div>
+      <span class="built-card-stack">Claude + Apify + React</span>
+    </div>
+    <div class="built-card reveal reveal-d1">
+      <div class="built-card-n">02</div>
+      <div class="built-card-title">Competitive Ad Intelligence Engine</div>
+      <div class="built-card-body">Scraped Twinings UK and 5 competitors across TikTok and Meta. Mined organic video comments for purchase-intent signals. Found the entire UK tea category had zero video advertising. Turned raw data into a complete brand strategy pitch document.</div>
+      <span class="built-card-stack">Deep Research + Apify + Firecrawl</span>
+    </div>
+    <div class="built-card reveal reveal-d2">
+      <div class="built-card-n">03</div>
+      <div class="built-card-title">Claude Cowork Automation Pipelines</div>
+      <div class="built-card-body">Used Claude Cowork to automate multi-step marketing workflows: lead enrichment pipelines, Apify actors running in sequence, JSON parsing from scraper outputs, prospect scoring end-to-end. Applied directly at Swivl to scale outbound with near-zero manual steps.</div>
+      <span class="built-card-stack">Claude Cowork + Apify + Python</span>
+    </div>
+    <div class="built-card reveal">
+      <div class="built-card-n">04</div>
+      <div class="built-card-title">Clay + Apollo + Instantly Stack</div>
+      <div class="built-card-body">Built the full outbound system at Swivl from scratch. AI-enriched prospect lists via Clay, personalised sequences via Apollo, domain health via Instantly. Consistent MQL flow, near-zero manual effort. Still running after I left.</div>
+      <span class="built-card-stack">Clay + Apollo + Instantly</span>
+    </div>
+    <div class="built-card reveal reveal-d1">
+      <div class="built-card-n">05</div>
+      <div class="built-card-title">IITM Founder Lead Scraper</div>
+      <div class="built-card-body">Apify pipeline scraping IIT Madras incubation cell portfolio pages. Extracts founder names with LinkedIn URLs, cross-references funding and domain data, compiles enriched spreadsheet for targeted outreach to IIT-pedigree founders.</div>
+      <span class="built-card-stack">Apify + Python + Excel</span>
+    </div>
+    <div class="built-card reveal reveal-d2">
+      <div class="built-card-n">06</div>
+      <div class="built-card-title">Full GTM Attribution Infrastructure</div>
+      <div class="built-card-body">Built complete attribution from zero: GA4 + Tag Manager, expanded 7-day click + 1-day view analysis, weekly CAC/ROAS dashboards. Found 23% of conversions were view-through and saved the video budget that was about to be cut.</div>
+      <span class="built-card-stack">GA4 + GTM + Meta Ads Manager</span>
+    </div>
+  </div>
+</section>
+<!-- MORE PROOF -->
+<section class="more-proof">
+  <div class="section-tag reveal">More work</div>
+  <h2 class="more-headline reveal">
+    Swivl wasn't a one-off.<br>
+    <em>Here's the rest.</em>
+  </h2>
+  <div class="more-grid">
+    <div class="more-card reveal">
+      <div class="more-card-org">CoreVoice / AskIITM · Dec 2023 — Jul 2025</div>
+      <p class="more-card-intro">“I grew IIT Madras top-tier admissions 200% and built a 32K podcast from nothing.”</p>
+      <div class="more-card-wins">
+        <div class="more-card-win"><span><strong>200% growth in top-tier admissions (ranks 1–100)</strong> through full-funnel campaign management and AI-assisted audience segmentation.</span></div>
+        <div class="more-card-win"><span><strong>Closing rank improved 29.6% (415→292)</strong> in a single admission cycle through precision targeting and data-driven messaging.</span></div>
+        <div class="more-card-win"><span><strong>7 cities, 400+ attendees, 15% enrolment conversion</strong> from Demo Day campaigns I managed end to end.</span></div>
+        <div class="more-card-win"><span><strong>0 to 32,300 podcast subscribers.</strong> Built the full content system: research, production, guest pipeline, multi-platform distribution.</span></div>
+      </div>
+    </div>
+    <div class="more-card reveal reveal-d1">
+      <div class="more-card-org">HyperVerge · Dec 2023 — Dec 2024</div>
+      <p class="more-card-intro">“I translated AI technology into C-suite narratives that moved deals through the pipeline.”</p>
+      <div class="more-card-wins">
+        <div class="more-card-win"><span>Customer success stories and sales collateral across <strong>fintech, crypto, and logistics</strong> verticals simultaneously.</span></div>
+        <div class="more-card-win"><span>Translated <strong>AI-powered identity verification technology</strong> into business narratives for C-suite audiences, turning complex tech into pipeline movement.</span></div>
+        <div class="more-card-win"><span>Operated across three verticals at the same time with <strong>consistent quality</strong> — the same skill PMMs need when a company launches multiple products.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- THE CASE -->
+<section class="the-case">
+  <div class="section-tag reveal">Why me</div>
+  <h2 class="case-headline reveal">
+    What you get<br>
+    <em>when you hire me.</em>
+  </h2>
+  <div class="case-grid">
+    <div class="case-card reveal">
+      <div class="case-num">01</div>
+      <div class="case-title">I build systems, not to-do lists</div>
+      <div class="case-body">The output isn't a strategy doc. It's a working outbound stack, a live attribution setup, a campaign generating MQLs. <strong>Things that run without me in the room.</strong> I built it at Swivl. It's still running now that I've left.</div>
+    </div>
+    <div class="case-card reveal reveal-d1">
+      <div class="case-num">02</div>
+      <div class="case-title">I find what's actually broken</div>
+      <div class="case-body">I don't treat the symptom. When bounce was 78%, I went looking for the cause. Found a fear objection buried in the hero copy that nobody had identified. <strong>Fixed it in 48 hours.</strong> That's the difference between iterating forever and actually growing.</div>
+    </div>
+    <div class="case-card reveal reveal-d2">
+      <div class="case-num">03</div>
+      <div class="case-title">AI replaces what I shouldn't be doing manually</div>
+      <div class="case-body">I've built dashboards that run lead enrichment pipelines, automated competitive intelligence workflows, and created tools that replace repetitive execution. <strong>My time goes to thinking and building, not copy-pasting spreadsheets.</strong></div>
+    </div>
+    <div class="case-card reveal reveal-d3">
+      <div class="case-num">04</div>
+      <div class="case-title">I've already done it at your scale</div>
+      <div class="case-body">Not theory. 2 to 326 customers in 7 months at Swivl, alone. 200% admissions growth at CoreVoice. 32K podcast subscribers from zero. <strong>I know what early-stage looks like. I know how to move fast without breaking things.</strong></div>
+    </div>
+  </div>
+</section>
+<!-- SKILLS -->
+<section class="skills">
+  <div class="section-tag reveal">The stack</div>
+  <h2 class="skills-headline reveal">What I work with.</h2>
+  <div class="skills-grid">
+    <div class="skill-group reveal">
+      <div class="skill-group-title">Strategy & GTM</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Go-to-Market</span>
+        <span class="skill-tag">ICP Development</span>
+        <span class="skill-tag">Brand Positioning</span>
+        <span class="skill-tag">Competitive Intelligence</span>
+        <span class="skill-tag">Product Launch</span>
+        <span class="skill-tag">Sales Enablement</span>
+      </div>
+    </div>
+    <div class="skill-group reveal reveal-d1">
+      <div class="skill-group-title">Paid Acquisition</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Meta Ads Manager</span>
+        <span class="skill-tag">Google Ads</span>
+        <span class="skill-tag">LinkedIn Campaigns</span>
+        <span class="skill-tag">CAC / ROAS Optimisation</span>
+        <span class="skill-tag">A/B Testing</span>
+        <span class="skill-tag">Attribution</span>
+      </div>
+    </div>
+    <div class="skill-group reveal reveal-d2">
+      <div class="skill-group-title">Outbound & Automation</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Clay</span>
+        <span class="skill-tag">Apollo</span>
+        <span class="skill-tag">Instantly</span>
+        <span class="skill-tag">Cold Email Sequencing</span>
+        <span class="skill-tag">Signal-based Targeting</span>
+        <span class="skill-tag">Domain Health</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-title">AI & Automation</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Claude + Cowork</span>
+        <span class="skill-tag">Apify</span>
+        <span class="skill-tag">Firecrawl</span>
+        <span class="skill-tag">Lead Enrichment Pipelines</span>
+        <span class="skill-tag">Competitive Scraping</span>
+        <span class="skill-tag">Workflow Automation</span>
+      </div>
+    </div>
+    <div class="skill-group reveal reveal-d1">
+      <div class="skill-group-title">Analytics</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Google Analytics 4</span>
+        <span class="skill-tag">Google Tag Manager</span>
+        <span class="skill-tag">HubSpot CRM</span>
+        <span class="skill-tag">Funnel Analysis</span>
+        <span class="skill-tag">Cohort Analysis</span>
+        <span class="skill-tag">KPI Forecasting</span>
+      </div>
+    </div>
+    <div class="skill-group reveal reveal-d2">
+      <div class="skill-group-title">Product Marketing</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Product Positioning</span>
+        <span class="skill-tag">Feature Adoption</span>
+        <span class="skill-tag">Lifecycle Marketing</span>
+        <span class="skill-tag">Podcast Production</span>
+        <span class="skill-tag">B2B Content</span>
+        <span class="skill-tag">C-suite Narratives</span>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- CONTACT -->
+<section class="contact">
+  <div>
+    <h2 class="contact-headline reveal">
+      Open to<br>
+      <em>the right role.</em>
+    </h2>
+    <p class="contact-sub reveal">Looking for PMM, Marketing Manager, or Founder's Office roles where I can own the problem, not just the task. Bengaluru-based. Open to remote.</p>
+  </div>
+  <div class="contact-details reveal">
+    <a href="tel:+918233250894" class="contact-item">
+      <div class="contact-item-icon">↗</div>
+      <div>
+        <div class="contact-item-label">Phone</div>
+        <div class="contact-item-value">+91 82332 50894</div>
+      </div>
+    </a>
+    <a href="mailto:indusaharan625@gmail.com" class="contact-item">
+      <div class="contact-item-icon">@</div>
+      <div>
+        <div class="contact-item-label">Email</div>
+        <div class="contact-item-value">indusaharan625@gmail.com</div>
+      </div>
+    </a>
+    <a href="#" class="contact-item">
+      <div class="contact-item-icon">in</div>
+      <div>
+        <div class="contact-item-label">LinkedIn</div>
+        <div class="contact-item-value">linkedin.com/in/indu</div>
+      </div>
+    </a>
+  </div>
+</section>
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('up'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
