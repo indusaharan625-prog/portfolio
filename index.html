@@ -127,7 +127,64 @@ section { padding: 112px 80px; position: relative; z-index: 1; }
 .reveal-d1 { transition-delay: 0.1s; }
 .reveal-d2 { transition-delay: 0.2s; }
 .reveal-d3 { transition-delay: 0.3s; }
+
+/* TESTIMONIALS */
+.testimonials { background: var(--off); }
+.testimonials .section-tag { color: var(--coral); }
+.testimonials .section-tag::before { background: var(--coral); }
+.testimonial-headline { font-family: 'Playfair Display', serif; font-size: clamp(36px, 4.5vw, 54px); font-weight: 900; line-height: 1.1; color: var(--ink); margin-bottom: 64px; letter-spacing: -0.02em; }
+.testimonial-headline em { font-style: italic; color: var(--coral); }
+.testimonial-card { background: var(--slate); padding: 48px 56px; position: relative; max-width: 780px; }
+.testimonial-card::before { content: '\201C'; position: absolute; top: -20px; left: 24px; font-family: 'Playfair Display', serif; font-size: 120px; font-weight: 900; color: rgba(224,58,42,0.15); line-height: 1; pointer-events: none; }
+.testimonial-quote { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 400; line-height: 1.6; color: var(--off); font-style: italic; margin-bottom: 28px; position: relative; z-index: 1; }
+.testimonial-author { display: flex; align-items: center; gap: 16px; }
+.testimonial-author-info { display: flex; flex-direction: column; }
+.testimonial-name { font-size: 15px; font-weight: 700; color: var(--off); }
+.testimonial-name a { color: var(--coral); text-decoration: none; font-size: 12px; font-weight: 600; margin-left: 8px; }
+.testimonial-name a:hover { text-decoration: underline; }
+.testimonial-role { font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(247,244,239,0.4); letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
+.testimonial-source { margin-top: 16px; font-family: 'DM Mono', monospace; font-size: 10px; color: rgba(247,244,239,0.25); letter-spacing: 1.5px; text-transform: uppercase; }
+
+/* BEFORE/AFTER SLIDER */
+.before-after { background: var(--ink); }
+.before-after .section-tag { color: var(--gold); }
+.before-after .section-tag::before { background: var(--gold); }
+.ba-headline { font-family: 'Playfair Display', serif; font-size: clamp(36px, 4.5vw, 54px); font-weight: 900; line-height: 1.1; color: var(--off); margin-bottom: 64px; letter-spacing: -0.02em; }
+.ba-headline em { font-style: italic; color: var(--gold); }
+.ba-grid { display: grid; grid-template-columns: 1fr 60px 1fr; gap: 0; align-items: stretch; }
+.ba-col { padding: 40px; }
+.ba-col-before { background: rgba(255,255,255,0.03); border: 1px solid var(--border); }
+.ba-col-after { background: rgba(224,58,42,0.06); border: 1px solid rgba(224,58,42,0.2); }
+.ba-label { font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+.ba-label-before { color: var(--muted); }
+.ba-label-after { color: var(--coral); border-bottom-color: rgba(224,58,42,0.3); }
+.ba-arrow { display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 36px; color: var(--coral); }
+.ba-row { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.ba-metric { font-size: 13px; color: rgba(247,244,239,0.45); }
+.ba-value { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; }
+.ba-value-before { color: rgba(247,244,239,0.35); }
+.ba-value-after { color: var(--coral); }
+
+/* STAT VISUALS */
+.stat-visuals { background: var(--slate); }
+.stat-visuals .section-tag { color: var(--gold); }
+.stat-visuals .section-tag::before { background: var(--gold); }
+.sv-headline { font-family: 'Playfair Display', serif; font-size: clamp(36px, 4.5vw, 54px); font-weight: 900; line-height: 1.1; color: var(--off); margin-bottom: 64px; letter-spacing: -0.02em; }
+.sv-headline em { font-style: italic; color: var(--gold); }
+.sv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.sv-card { background: rgba(255,255,255,0.03); border: 1px solid var(--border); padding: 40px 32px; text-align: center; transition: background 0.2s; }
+.sv-card:hover { background: rgba(255,255,255,0.06); }
+.sv-number { font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 900; color: var(--coral); line-height: 1; margin-bottom: 8px; }
+.sv-unit { font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.sv-desc { font-size: 14px; line-height: 1.7; color: rgba(247,244,239,0.5); }
+.sv-desc strong { color: rgba(247,244,239,0.85); font-weight: 700; }
+.sv-bar { height: 4px; background: rgba(255,255,255,0.06); margin-top: 20px; border-radius: 2px; overflow: hidden; }
+.sv-bar-fill { height: 100%; background: linear-gradient(90deg, var(--coral), var(--gold)); border-radius: 2px; }
+
 @media(max-width: 900px) {
+  .ba-grid { grid-template-columns: 1fr; }
+  .ba-arrow { transform: rotate(90deg); padding: 16px 0; }
+  .sv-grid { grid-template-columns: 1fr 1fr; }
   .hero-content, .work-story, .more-grid, .case-grid, .contact { grid-template-columns: 1fr; }
   .built-grid, .skills-grid { grid-template-columns: 1fr 1fr; }
   section, .the-moment, .contact { padding: 80px 32px; }
@@ -226,7 +283,7 @@ section { padding: 112px 80px; position: relative; z-index: 1; }
 </section>
 <!-- THE WORK -->
 <section class="the-work" id="work">
-  <div class="section-tag reveal">Swivl.tech · Aug 2024 — Mar 2026</div>
+  <div class="section-tag reveal">Swivl.tech · Aug 2025 — Mar 2026</div>
   <h2 class="work-headline reveal">
     Here's what I actually<br>
     <em>did, with numbers.</em>
@@ -266,6 +323,101 @@ section { padding: 112px 80px; position: relative; z-index: 1; }
     Our CTR was strong at 4.1%. But the landing page bounce was 78%. The standard playbook says: test layout, test CTA, run variants. I ran scroll depth analysis, session recordings, and a 94-response user survey in 48 hours instead. The problem wasn't the page design at all. It was the hero copy triggering a fear objection that we'd never noticed. I rebuilt the section to address the objection directly. <strong>Bounce dropped from 78% to 42%.</strong> That's the difference between iterating on the wrong thing and diagnosing the right one.
   </p>
 </div>
+<!-- BEFORE / AFTER SLIDER -->
+<section class="before-after">
+  <div class="section-tag reveal">The transformation</div>
+  <h2 class="ba-headline reveal">
+    Swivl, before &amp; after<br>
+    <em>my 7 months.</em>
+  </h2>
+  <div class="ba-grid reveal">
+    <div class="ba-col ba-col-before">
+      <div class="ba-label ba-label-before">Before — Aug 2025</div>
+      <div class="ba-row"><span class="ba-metric">Customers</span><span class="ba-value ba-value-before">2</span></div>
+      <div class="ba-row"><span class="ba-metric">MRR</span><span class="ba-value ba-value-before">$0</span></div>
+      <div class="ba-row"><span class="ba-metric">Bounce rate</span><span class="ba-value ba-value-before">78%</span></div>
+      <div class="ba-row"><span class="ba-metric">Attribution</span><span class="ba-value ba-value-before">None</span></div>
+      <div class="ba-row"><span class="ba-metric">Outbound system</span><span class="ba-value ba-value-before">None</span></div>
+      <div class="ba-row"><span class="ba-metric">Feature adoption lift</span><span class="ba-value ba-value-before">0%</span></div>
+    </div>
+    <div class="ba-arrow">→</div>
+    <div class="ba-col ba-col-after">
+      <div class="ba-label ba-label-after">After — Mar 2026</div>
+      <div class="ba-row"><span class="ba-metric">Customers</span><span class="ba-value ba-value-after">326</span></div>
+      <div class="ba-row"><span class="ba-metric">MRR</span><span class="ba-value ba-value-after">$8,150</span></div>
+      <div class="ba-row"><span class="ba-metric">Bounce rate</span><span class="ba-value ba-value-after">42%</span></div>
+      <div class="ba-row"><span class="ba-metric">Attribution</span><span class="ba-value ba-value-after">Full stack</span></div>
+      <div class="ba-row"><span class="ba-metric">Outbound system</span><span class="ba-value ba-value-after">Automated</span></div>
+      <div class="ba-row"><span class="ba-metric">Feature adoption lift</span><span class="ba-value ba-value-after">+40%</span></div>
+    </div>
+  </div>
+</section>
+<!-- STAT VISUALS -->
+<section class="stat-visuals">
+  <div class="section-tag reveal">Impact at a glance</div>
+  <h2 class="sv-headline reveal">
+    Numbers that<br>
+    <em>speak for themselves.</em>
+  </h2>
+  <div class="sv-grid">
+    <div class="sv-card reveal">
+      <div class="sv-number">326</div>
+      <div class="sv-unit">Customers</div>
+      <div class="sv-desc"><strong>From 2 to 326</strong> in 7 months. Full GTM system built from zero.</div>
+      <div class="sv-bar"><div class="sv-bar-fill" style="width: 95%;"></div></div>
+    </div>
+    <div class="sv-card reveal reveal-d1">
+      <div class="sv-number">$8.1K</div>
+      <div class="sv-unit">Monthly recurring revenue</div>
+      <div class="sv-desc"><strong>MRR built from nothing.</strong> Paid + outbound + lifecycle working as one.</div>
+      <div class="sv-bar"><div class="sv-bar-fill" style="width: 80%;"></div></div>
+    </div>
+    <div class="sv-card reveal reveal-d2">
+      <div class="sv-number">46%</div>
+      <div class="sv-unit">Bounce rate reduction</div>
+      <div class="sv-desc"><strong>78% → 42%</strong> in 48 hours. Found the real problem, not the surface one.</div>
+      <div class="sv-bar"><div class="sv-bar-fill" style="width: 46%;"></div></div>
+    </div>
+    <div class="sv-card reveal">
+      <div class="sv-number">23%</div>
+      <div class="sv-unit">Hidden conversions found</div>
+      <div class="sv-desc"><strong>View-through conversions</strong> that saved the video budget from being cut.</div>
+      <div class="sv-bar"><div class="sv-bar-fill" style="width: 23%;"></div></div>
+    </div>
+    <div class="sv-card reveal reveal-d1">
+      <div class="sv-number">40%</div>
+      <div class="sv-unit">Feature adoption increase</div>
+      <div class="sv-desc"><strong>Positioning &amp; messaging alone.</strong> No new spend. Just the right story.</div>
+      <div class="sv-bar"><div class="sv-bar-fill" style="width: 40%;"></div></div>
+    </div>
+    <div class="sv-card reveal reveal-d2">
+      <div class="sv-number">32K</div>
+      <div class="sv-unit">Podcast subscribers</div>
+      <div class="sv-desc"><strong>Built from zero</strong> at IIT Madras. Full content system, research to distribution.</div>
+      <div class="sv-bar"><div class="sv-bar-fill" style="width: 88%;"></div></div>
+    </div>
+  </div>
+</section>
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-tag reveal">What my manager said</div>
+  <h2 class="testimonial-headline reveal">
+    Don't just take my word.<br>
+    <em>Take theirs.</em>
+  </h2>
+  <div class="testimonial-card reveal">
+    <p class="testimonial-quote">
+      "Indu demonstrated outstanding communication, editorial and social media skills, consistently delivering engaging and impactful content. She is proactive, creative, and completes her work ahead of time."
+    </p>
+    <div class="testimonial-author">
+      <div class="testimonial-author-info">
+        <div class="testimonial-name">Amrutash Misra <a href="https://www.linkedin.com/in/amrutash-misra/" target="_blank">LinkedIn ↗</a></div>
+        <div class="testimonial-role">Manager · CoreVoice / AskIITM</div>
+      </div>
+    </div>
+    <div class="testimonial-source">From official experience letter</div>
+  </div>
+</section>
 <!-- WHAT I'VE BUILT -->
 <section class="built">
   <div class="section-tag reveal">Things I've built</div>
