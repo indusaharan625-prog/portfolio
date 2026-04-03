@@ -134,7 +134,8 @@ section { padding: 112px 80px; position: relative; z-index: 1; }
 .testimonials .section-tag::before { background: var(--coral); }
 .testimonial-headline { font-family: 'Playfair Display', serif; font-size: clamp(36px, 4.5vw, 54px); font-weight: 900; line-height: 1.1; color: var(--ink); margin-bottom: 64px; letter-spacing: -0.02em; }
 .testimonial-headline em { font-style: italic; color: var(--coral); }
-.testimonial-card { background: var(--slate); padding: 48px 56px; position: relative; max-width: 780px; }
+.testimonial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.testimonial-card { background: var(--slate); padding: 48px 56px; position: relative; }
 .testimonial-card::before { content: '\201C'; position: absolute; top: -20px; left: 24px; font-family: 'Playfair Display', serif; font-size: 120px; font-weight: 900; color: rgba(224,58,42,0.15); line-height: 1; pointer-events: none; }
 .testimonial-quote { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 400; line-height: 1.6; color: var(--off); font-style: italic; margin-bottom: 28px; position: relative; z-index: 1; }
 .testimonial-author { display: flex; align-items: center; gap: 16px; }
@@ -185,7 +186,7 @@ section { padding: 112px 80px; position: relative; z-index: 1; }
   .ba-grid { grid-template-columns: 1fr; }
   .ba-arrow { transform: rotate(90deg); padding: 16px 0; }
   .sv-grid { grid-template-columns: 1fr 1fr; }
-  .hero-content, .work-story, .more-grid, .case-grid, .contact { grid-template-columns: 1fr; }
+  .hero-content, .work-story, .more-grid, .case-grid, .contact, .testimonial-grid { grid-template-columns: 1fr; }
   .built-grid, .skills-grid { grid-template-columns: 1fr 1fr; }
   section, .the-moment, .contact { padding: 80px 32px; }
   .hero-content { padding: 80px 32px 60px; }
@@ -221,14 +222,14 @@ section { padding: 112px 80px; position: relative; z-index: 1; }
         <div class="hero-stat-num">2<span class="accent">→</span>326</div>
         <div class="hero-stat-meta">
           <div class="hero-stat-label">Customers in 7 months</div>
-          <div class="hero-stat-sub">Swivl · Marketing Manager · B2B SaaS</div>
+          <div class="hero-stat-sub">WrmsKonnect · Marketing Manager · B2B SaaS</div>
         </div>
       </div>
       <div class="hero-stat">
         <div class="hero-stat-num">$8<span class="accent">,</span>150</div>
         <div class="hero-stat-meta">
           <div class="hero-stat-label">MRR built from zero</div>
-          <div class="hero-stat-sub">Swivl · Full GTM stack · 7 months</div>
+          <div class="hero-stat-sub">WrmsKonnect · Full GTM stack · 7 months</div>
         </div>
       </div>
       <div class="hero-stat">
@@ -277,13 +278,13 @@ section { padding: 112px 80px; position: relative; z-index: 1; }
   </p>
   <div class="what-clarifier reveal">
     <p class="what-clarifier-text">
-      At Swivl, I was the Marketing Manager. I didn't try to do everything myself. I <strong>figured out where growth was leaking</strong>, decided what to prioritise, what to delegate, and what to kill. Paid acquisition, outbound, attribution — I built those systems, led the execution, and made sure every piece fed the next. The result: 2 to 326 customers and $8,150 MRR in seven months.
+      At WrmsKonnect, I was the Marketing Manager. I didn't try to do everything myself. I <strong>figured out where growth was leaking</strong>, decided what to prioritise, what to delegate, and what to kill. Paid acquisition, outbound, attribution — I built those systems, led the execution, and made sure every piece fed the next. The result: 2 to 326 customers and $8,150 MRR in seven months.
     </p>
   </div>
 </section>
 <!-- THE WORK -->
 <section class="the-work" id="work">
-  <h2 class="work-headline reveal" style="margin-bottom: 0;">Swivl.tech<br><em>Aug 2025 — Mar 2026</em></h2>
+  <h2 class="work-headline reveal" style="margin-bottom: 0;">WrmsKonnect Technologies Pvt. Ltd.<br><em>Aug 2025 — Mar 2026</em></h2>
 </section>
 <!-- THE MOMENT -->
 <div class="the-moment">
@@ -298,7 +299,7 @@ section { padding: 112px 80px; position: relative; z-index: 1; }
 <section class="before-after">
   <div class="section-tag reveal">The transformation</div>
   <h2 class="ba-headline reveal">
-    Swivl, before &amp; after<br>
+    WrmsKonnect, before &amp; after<br>
     <em>my 7 months.</em>
   </h2>
   <div class="ba-grid reveal">
@@ -376,17 +377,31 @@ section { padding: 112px 80px; position: relative; z-index: 1; }
     Don't just take my word.<br>
     <em>Take theirs.</em>
   </h2>
-  <div class="testimonial-card reveal">
-    <p class="testimonial-quote">
-      "Indu demonstrated outstanding communication, editorial and social media skills, consistently delivering engaging and impactful content. She is proactive, creative, and completes her work ahead of time."
-    </p>
-    <div class="testimonial-author">
-      <div class="testimonial-author-info">
-        <div class="testimonial-name">Amrutash Misra <a href="https://www.linkedin.com/in/amrutash-misra/" target="_blank">LinkedIn ↗</a></div>
-        <div class="testimonial-role">Manager · CoreVoice / AskIITM</div>
+  <div class="testimonial-grid">
+    <div class="testimonial-card reveal">
+      <p class="testimonial-quote">
+        "Indu drove marketing campaigns across Meta, Google, and LinkedIn to generate leads. She led go-to-market activities for product features, handled brand messaging, email campaigns, and content coordination. She collaborated with internal teams to ensure smooth campaign execution and alignment. We thank her for her hard work and contribution."
+      </p>
+      <div class="testimonial-author">
+        <div class="testimonial-author-info">
+          <div class="testimonial-name">WrmsKonnect Technologies Pvt. Ltd.</div>
+          <div class="testimonial-role">WrmsKonnect · Official Experience Letter</div>
+        </div>
       </div>
+      <div class="testimonial-source">From official experience letter · April 2026</div>
     </div>
-    <div class="testimonial-source">From official experience letter</div>
+    <div class="testimonial-card reveal reveal-d1">
+      <p class="testimonial-quote">
+        "Indu demonstrated outstanding communication, editorial and social media skills, consistently delivering engaging and impactful content. She is proactive, creative, and completes her work ahead of time."
+      </p>
+      <div class="testimonial-author">
+        <div class="testimonial-author-info">
+          <div class="testimonial-name">Amrutash Misra <a href="https://www.linkedin.com/in/amrutash-misra/" target="_blank">LinkedIn ↗</a></div>
+          <div class="testimonial-role">Manager · CoreVoice / AskIITM</div>
+        </div>
+      </div>
+      <div class="testimonial-source">From official experience letter</div>
+    </div>
   </div>
 </section>
 <!-- WHAT I'VE BUILT -->
@@ -413,13 +428,13 @@ section { padding: 112px 80px; position: relative; z-index: 1; }
     <div class="built-card reveal reveal-d2">
       <div class="built-card-n">03</div>
       <div class="built-card-title">Claude Cowork Automation Pipelines</div>
-      <div class="built-card-body">Used Claude Cowork to automate multi-step marketing workflows: lead enrichment pipelines, Apify actors running in sequence, JSON parsing from scraper outputs, prospect scoring end-to-end. Applied directly at Swivl to scale outbound with near-zero manual steps.</div>
+      <div class="built-card-body">Used Claude Cowork to automate multi-step marketing workflows: lead enrichment pipelines, Apify actors running in sequence, JSON parsing from scraper outputs, prospect scoring end-to-end. Applied directly at WrmsKonnect to scale outbound with near-zero manual steps.</div>
       <span class="built-card-stack">Claude Cowork + Apify + Python</span>
     </div>
     <div class="built-card reveal">
       <div class="built-card-n">04</div>
       <div class="built-card-title">Clay + Apollo + Instantly Stack</div>
-      <div class="built-card-body">Built the full outbound system at Swivl from scratch. AI-enriched prospect lists via Clay, personalised sequences via Apollo, domain health via Instantly. Consistent MQL flow, near-zero manual effort. Still running after I left.</div>
+      <div class="built-card-body">Built the full outbound system at WrmsKonnect from scratch. AI-enriched prospect lists via Clay, personalised sequences via Apollo, domain health via Instantly. Consistent MQL flow, near-zero manual effort. Still running after I left.</div>
       <span class="built-card-stack">Clay + Apollo + Instantly</span>
     </div>
     <div class="built-card reveal reveal-d1">
@@ -440,7 +455,7 @@ section { padding: 112px 80px; position: relative; z-index: 1; }
 <section class="more-proof">
   <div class="section-tag reveal">More work</div>
   <h2 class="more-headline reveal">
-    Swivl wasn't a one-off.<br>
+    WrmsKonnect wasn't a one-off.<br>
     <em>Here's the rest.</em>
   </h2>
   <div class="more-grid">
@@ -476,7 +491,7 @@ section { padding: 112px 80px; position: relative; z-index: 1; }
     <div class="case-card reveal">
       <div class="case-num">01</div>
       <div class="case-title">I build systems, not to-do lists</div>
-      <div class="case-body">The output isn't a strategy doc. It's a working outbound stack, a live attribution setup, a campaign generating MQLs. <strong>Things that run without me in the room.</strong> I built it at Swivl. It's still running now that I've left.</div>
+      <div class="case-body">The output isn't a strategy doc. It's a working outbound stack, a live attribution setup, a campaign generating MQLs. <strong>Things that run without me in the room.</strong> I built it at WrmsKonnect. It's still running now that I've left.</div>
     </div>
     <div class="case-card reveal reveal-d1">
       <div class="case-num">02</div>
@@ -491,7 +506,7 @@ section { padding: 112px 80px; position: relative; z-index: 1; }
     <div class="case-card reveal reveal-d3">
       <div class="case-num">04</div>
       <div class="case-title">I've already done it at your scale</div>
-      <div class="case-body">Not theory. 2 to 326 customers in 7 months at Swivl, alone. 200% admissions growth at CoreVoice. 32K podcast subscribers from zero. <strong>I know what early-stage looks like. I know how to move fast without breaking things.</strong></div>
+      <div class="case-body">Not theory. 2 to 326 customers in 7 months at WrmsKonnect, alone. 200% admissions growth at CoreVoice. 32K podcast subscribers from zero. <strong>I know what early-stage looks like. I know how to move fast without breaking things.</strong></div>
     </div>
   </div>
 </section>
